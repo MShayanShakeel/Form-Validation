@@ -13,41 +13,23 @@ const Second = () => {
   const [textarea, setTextarea] = useState("");
   const [errors, setErrors] = useState({});
 
-  const validateForm = () => {
+  const validate = () => {
     const newErrors = {};
+    if (!name) newErrors.name = "Name is required";
+    if (!email) newErrors.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Email is invalid";
+    if (!phone) newErrors.phone = "Phone number is required";
+    else if (!/^\d+$/.test(phone)) newErrors.phone = "Phone number is invalid";
+    if (!textarea) newErrors.textarea = "Please share something";
 
-    if (name.length < 3) {
-      newErrors.name = "Name must be at least 3 characters long";
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      newErrors.email = "Invalid email format";
-    }
-
-    if (phone.length < 8 || !/^\d+$/.test(phone)) {
-      newErrors.phone =
-        "Phone number must be at least 8 digits long and contain only numbers";
-    }
-
-    const wordCount = textarea.split(/\s+/).filter((word) => word).length;
-    if (wordCount < 10) {
-      newErrors.textarea = "Text area must contain at least 10 words";
-    }
-
-    if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted successfully");
-    } else {
-      setErrors(newErrors);
-    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleNavigate = () => {
-    try {
-      validateForm();
-    } catch (error) {
+    if (validate()) {
       navigate("/final");
-      console.log("Form submitted successfully");
+      console.log("Form submitted");
     }
   };
 
@@ -69,7 +51,8 @@ const Second = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          {errors.name && <p className="error">{errors.name}</p>}
+          {errors.name && <span className="error">{errors.name}</span>}
+
           <div className="Navbar-Second">
             <div className="margin">
               <label>Email</label>
@@ -78,7 +61,7 @@ const Second = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              {errors.email && <p className="error">{errors.email}</p>}
+              {errors.email && <span className="error">{errors.email}</span>}
             </div>
             <div>
               <label>Phone Nuumber</label>
@@ -88,7 +71,7 @@ const Second = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
-              {errors.phone && <p className="error">{errors.phone}</p>}
+              {errors.phone && <span className="error">{errors.phone}</span>}
             </div>
           </div>
 
@@ -98,7 +81,8 @@ const Second = () => {
             onChange={(e) => setTextarea(e.target.value)}
             rows={6}
           ></textarea>
-          {errors.textarea && <p className="error">{errors.textarea}</p>}
+          {errors.textarea && <span className="error">{errors.textarea}</span>}
+
           <button onClick={handleNavigate}>Send Request</button>
 
           <p>We promise never to share your information or spam your inbox</p>
