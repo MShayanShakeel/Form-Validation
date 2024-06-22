@@ -1,0 +1,37 @@
+.Navbar-main {
+  padding: 1rem 1rem;
+}
+.Navbar-Second {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-span {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+.navbar-hr {
+  border: none;
+  height: 2px;
+  background-color: red;
+  margin-top: 10px;
+}
+.navbar-hr1 {
+  width: 70%;
+}
+.navbar-hr2 {
+  width: 40%;
+}
+.margin {
+  margin-right: 1rem;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -0.6rem !important;
+}
+.disabled-button {
+  background-color: gray;
+  cursor: not-allowed;
+}
