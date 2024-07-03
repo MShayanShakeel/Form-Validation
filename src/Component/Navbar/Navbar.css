@@ -38,6 +38,7 @@
 
 @media screen and (max-width: 700px) {
   .First-second {
-    padding: 0px 1rem;
+    padding: 0px 0.5rem;
+    width: 90%;
   }
 }
