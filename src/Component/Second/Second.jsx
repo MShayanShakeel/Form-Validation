@@ -45,7 +45,7 @@ const Second = () => {
             We’re thrilled at the opportunity to help you grow your business
             online. Please let us know the best way to reach you.
           </p>
-          <label>Name</label>
+          <label className="Second-lable">Name</label>
           <input
             type="text"
             value={name}
@@ -53,29 +53,26 @@ const Second = () => {
           />
           {errors.name && <span className="error">{errors.name}</span>}
 
-          <div className="Navbar-Second">
-            <div className="margin">
-              <label>Email</label>
-              <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              {errors.email && <span className="error">{errors.email}</span>}
-            </div>
-            <div>
-              <label>Phone Nuumber</label>
+          <label className="Second-lable">Email</label>
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {errors.email && <span className="error">{errors.email}</span>}
 
-              <input
-                type="text"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-              {errors.phone && <span className="error">{errors.phone}</span>}
-            </div>
-          </div>
+          <label className="Second-lable">Phone Nuumber</label>
 
-          <label>Anything else you’d like to share?</label>
+          <input
+            type="text"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          {errors.phone && <span className="error">{errors.phone}</span>}
+
+          <label className="Second-lable">
+            Anything else you’d like to share?
+          </label>
           <textarea
             value={textarea}
             onChange={(e) => setTextarea(e.target.value)}

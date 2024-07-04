@@ -23,9 +23,7 @@
 .navbar-hr2 {
   width: 40%;
 }
-.margin {
-  margin-right: 1rem;
-}
+
 .error {
   color: red;
   font-size: 12px;
@@ -34,6 +32,9 @@
 .disabled-button {
   background-color: gray;
   cursor: not-allowed;
+}
+.Second-lable {
+  margin-bottom: 2px;
 }
 
 @media screen and (max-width: 700px) {
